@@ -6,7 +6,7 @@ pipeline {
     stages { 
         stage('Checkout') {
             steps {
-                git 'https://github.com/arperrin/sample-angular.git'
+                git 'https://github.com/Barkha6/Angular_demo.git'
             }
         }
         stage('Build') {
