@@ -9,6 +9,7 @@ pipeline {
                 git 'https://github.com/Barkha6/Angular_demo.git'
             }
         }
+    }
         stage('Build') {
             steps {
                 sh'''
