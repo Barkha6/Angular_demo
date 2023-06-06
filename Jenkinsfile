@@ -1,16 +1,18 @@
-pipeline{
-  agent any
-  
-  stages{
-    stage('Install'){
-      steps{
-        sh "npm install"
-      }
+pipeline {
+    agent any
+    tools {        
+        nodejs "NodeJS 12.3.1"
     }
-    stage('Build'){
-      steps{
-        sh "ng build"
-      }
-    }
-  }
-}
+    stages { 
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/arperrin/sample-angular.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh'''
+                npm install && ng build --prod
+                '''
+            }
+        }
